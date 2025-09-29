@@ -1,0 +1,9 @@
+/Users/blb/Workspace/SimpleDaemons/simple-dnsd/build/CMakeFiles/simple-dnsd.dir
+/Users/blb/Workspace/SimpleDaemons/simple-dnsd/build/CMakeFiles/package.dir
+/Users/blb/Workspace/SimpleDaemons/simple-dnsd/build/CMakeFiles/package_source.dir
+/Users/blb/Workspace/SimpleDaemons/simple-dnsd/build/CMakeFiles/edit_cache.dir
+/Users/blb/Workspace/SimpleDaemons/simple-dnsd/build/CMakeFiles/rebuild_cache.dir
+/Users/blb/Workspace/SimpleDaemons/simple-dnsd/build/CMakeFiles/list_install_components.dir
+/Users/blb/Workspace/SimpleDaemons/simple-dnsd/build/CMakeFiles/install.dir
+/Users/blb/Workspace/SimpleDaemons/simple-dnsd/build/CMakeFiles/install/local.dir
+/Users/blb/Workspace/SimpleDaemons/simple-dnsd/build/CMakeFiles/install/strip.dir

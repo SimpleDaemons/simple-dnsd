@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  simple-dnsd:
+    image: simple-dnsd:latest
+    container_name: simple-dnsd
+    ports:
+      - ":/tcp"
+    volumes:
+      - ./config:/etc/simple-dnsd:ro
+      - ./data:/var/lib/simple-dnsd
+      - ./logs:/var/log/simple-dnsd
+    environment:
+      - SIMPLE-DNSD_CONFIG=/etc/simple-dnsd/simple-dnsd.conf
+      - SIMPLE-DNSD_LOG_LEVEL=info
+      - SIMPLE-DNSD_BIND_ADDRESS=0.0.0.0
+      - SIMPLE-DNSD_BIND_PORT=
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", ""]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - simple-dnsd-network
+
+networks:
+  simple-dnsd-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.0.0/16
