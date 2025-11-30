@@ -1,9 +1,9 @@
 # CMakeLists.txt template for SimpleDaemons projects
 # Simple DNS Daemon
-# Copyright  SimpleDaemons
+# Copyright 2024 SimpleDaemons
 
 cmake_minimum_required(VERSION 3.16)
-project(simple-dnsd VERSION "0.1.0" LANGUAGES CXX)
+project(simple-dnsd VERSION 0.1.0 LANGUAGES CXX)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
@@ -132,7 +132,7 @@ elseif(APPLE)
 endif()
 
 # Tests
-if(ENABLE_TESTS AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/tests/CMakeLists.txt")
+if(ENABLE_TESTS)
     enable_testing()
     add_subdirectory(tests)
 endif()
@@ -279,7 +279,7 @@ if(ENABLE_PACKAGING)
     )
     
     # Include CPack configuration
-    # include(CPack)  # Already included above
+    include(CPack)
 endif()
 
 # Print configuration summary

@@ -5,7 +5,7 @@ services:
     image: simple-dnsd:latest
     container_name: simple-dnsd
     ports:
-      - ":/tcp"
+      - "67:67/tcp"
     volumes:
       - ./config:/etc/simple-dnsd:ro
       - ./data:/var/lib/simple-dnsd
@@ -14,10 +14,10 @@ services:
       - SIMPLE-DNSD_CONFIG=/etc/simple-dnsd/simple-dnsd.conf
       - SIMPLE-DNSD_LOG_LEVEL=info
       - SIMPLE-DNSD_BIND_ADDRESS=0.0.0.0
-      - SIMPLE-DNSD_BIND_PORT=
+      - SIMPLE-DNSD_BIND_PORT=67
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "nc", "-z", "localhost", ""]
+      test: ["CMD", "nc", "-z", "localhost", "67"]
       interval: 30s
       timeout: 10s
       retries: 3

@@ -24,7 +24,7 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#include "simple_dnsd/dnsd_app.hpp"
+#include "simple-dnsd/core/app.hpp"
 
 using namespace simple_dnsd;
 

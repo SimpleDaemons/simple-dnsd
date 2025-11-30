@@ -1,6 +1,6 @@
 # Travis CI configuration for simple-dnsd
 # Simple DNS Daemon
-# Copyright  SimpleDaemons
+# Copyright 2024 SimpleDaemons
 
 # Language and version
 language: cpp

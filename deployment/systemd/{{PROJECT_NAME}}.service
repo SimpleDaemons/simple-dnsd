@@ -1,0 +1,17 @@
+[Unit]
+Description=Simple DNS Daemon
+After=network.target
+
+[Service]
+Type=simple
+User=simple-dnsd
+Group=simple-dnsd
+ExecStart=/usr/local/bin/simple-dnsd
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=simple-dnsd
+
+[Install]
+WantedBy=multi-user.target

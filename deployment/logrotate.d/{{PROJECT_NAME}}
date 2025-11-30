@@ -1,0 +1,14 @@
+/var/log/simple-dnsd/*.log {
+    daily
+    missingok
+    rotate 52
+    compress
+    delaycompress
+    notifempty
+    create 644 _simple-dnsd _simple-dnsd
+    postrotate
+        /bin/systemctl reload simple-dnsd > /dev/null 2>&1 || true
+    endscript
+    sharedscripts
+    su _simple-dnsd _simple-dnsd
+}

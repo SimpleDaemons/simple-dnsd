@@ -29,7 +29,7 @@ This directory contains Docker deployment examples for simple-dnsd.
 | `SIMPLE-DNSD_CONFIG` | `/etc/simple-dnsd/simple-dnsd.conf` | Configuration file path |
 | `SIMPLE-DNSD_LOG_LEVEL` | `info` | Log level (debug, info, warn, error) |
 | `SIMPLE-DNSD_BIND_ADDRESS` | `0.0.0.0` | Bind address |
-| `SIMPLE-DNSD_BIND_PORT` | `` | Bind port |
+| `SIMPLE-DNSD_BIND_PORT` | `67` | Bind port |
 
 ### Volumes
 
@@ -66,7 +66,7 @@ docker-compose down -v
 
 The container includes health checks that verify the service is responding:
 
-- **Check command:** `nc -z localhost `
+- **Check command:** `nc -z localhost 67`
 - **Interval:** 30 seconds
 - **Timeout:** 10 seconds
 - **Retries:** 3
@@ -97,11 +97,11 @@ docker-compose exec simple-dnsd cat /etc/simple-dnsd/simple-dnsd.conf
 ### Port conflicts
 ```bash
 # Check what's using the port
-netstat -tlnp | grep 
+netstat -tlnp | grep 67
 
 # Change port in docker-compose.yml
 ports:
-  - "8080:/tcp"
+  - "8080:67/tcp"
 ```
 
 ### Permission issues

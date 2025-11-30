@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 // Jenkins Pipeline for simple-dnsd
 // Simple DNS Daemon
-// Copyright  SimpleDaemons
+// Copyright 2024 SimpleDaemons
 
 pipeline {
     agent any
