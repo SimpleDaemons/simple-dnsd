@@ -1,49 +1,19 @@
-# Simple Dummy Application
+# Simple DNS Daemon
 
-A test application for demonstrating the standardized build system and static binary creation capabilities.
+## License
 
-## Features
+This project is licensed under the Apache License, Version 2.0 - see the [LICENSE](LICENSE) file for details.
 
-- Simple daemon/foreground execution modes
-- Threaded worker implementation
-- Configurable logging
-- Cross-platform build support
-- Static binary generation
+Copyright 2024 SimpleDaemons
 
-## Building
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-```bash
-# Regular build
-make build
+    http://www.apache.org/licenses/LICENSE-2.0
 
-# Static binary build
-make static-build
-
-# Create packages
-make package
-make static-package
-```
-
-## Usage
-
-```bash
-# Run in foreground
-./simple-dummy
-
-# Run as daemon
-./simple-dummy --daemon
-```
-
-## Configuration
-
-Copy `config/simple-dummy.conf.example` to your desired location and modify as needed.
-
-## Static Binary
-
-This application supports static binary creation for easy distribution:
-
-```bash
-make static-package
-```
-
-This creates platform-specific packages containing the self-contained executable.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
