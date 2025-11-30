@@ -1,0 +1,15 @@
+#!/bin/bash
+# Pre-removal script for simple-dnsd
+
+set -e
+
+PROJECT_NAME="simple-dnsd"
+
+if [ "$1" = "remove" ] || [ "$1" = "deconfigure" ]; then
+    # Stop service before removal
+    systemctl stop "$simple-dnsd" 2>/dev/null || true
+    systemctl disable "$simple-dnsd" 2>/dev/null || true
+fi
+
+exit 0
+
