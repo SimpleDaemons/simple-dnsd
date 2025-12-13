@@ -12,10 +12,10 @@ graph TB
 
     subgraph "DNS Server"
         Server[simple-dnsd<br/>Main Process]
-        ZoneFiles[/etc/simple-dnsd/zones/<br/>Zone Files]
-        Config[/etc/simple-dnsd/<br/>Configuration]
-        Cache[/var/cache/simple-dnsd/<br/>Cache Files]
-        Logs[/var/log/simple-dnsd/<br/>Log Files]
+        ZoneFiles[Zone Files<br/>/etc/simple-dnsd/zones/]
+        Config[Configuration<br/>/etc/simple-dnsd/]
+        Cache[Cache Files<br/>/var/cache/simple-dnsd/]
+        Logs[Log Files<br/>/var/log/simple-dnsd/]
     end
 
     subgraph "System Services"
@@ -150,10 +150,10 @@ graph TB
 
     subgraph "External"
         Clients[DNS Clients]
-        ZoneMount[/host/zones<br/>Zone Files]
-        ConfigMount[/host/config<br/>Configuration]
-        CacheMount[/host/cache<br/>Cache]
-        LogMount[/host/logs<br/>Log Files]
+        ZoneMount[Zone Files<br/>/host/zones]
+        ConfigMount[Configuration<br/>/host/config]
+        CacheMount[Cache<br/>/host/cache]
+        LogMount[Log Files<br/>/host/logs]
     end
 
     Clients --> HostNetwork
