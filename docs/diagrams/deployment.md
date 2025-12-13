@@ -147,7 +147,7 @@ graph TB
         Volumes[Volumes<br/>Zones/Config/Cache]
         HostNetwork[Host Network<br/>Port 53 UDP/TCP]
     end
-    
+
     subgraph "External"
         Clients[DNS Clients]
         ZoneMount[/host/zones<br/>Zone Files]
@@ -155,16 +155,16 @@ graph TB
         CacheMount[/host/cache<br/>Cache]
         LogMount[/host/logs<br/>Log Files]
     end
-    
+
     Clients --> HostNetwork
     HostNetwork --> Container
     Container --> Volumes
-    
+
     ZoneMount --> Volumes
     ConfigMount --> Volumes
     CacheMount --> Volumes
     LogMount --> Volumes
-    
+
     Docker --> Container
 ```
 
@@ -179,39 +179,39 @@ graph TB
         Secret[Secret<br/>TSIG Keys]
         PVC[PersistentVolumeClaim<br/>Zone Files]
     end
-    
+
     subgraph "Kubernetes Nodes"
         Pod1[Pod 1<br/>simple-dnsd]
         Pod2[Pod 2<br/>simple-dnsd]
         PodN[Pod N<br/>simple-dnsd]
     end
-    
+
     subgraph "External"
         Clients[DNS Clients]
         Upstream[Upstream DNS Servers]
     end
-    
+
     Clients --> Service
     Service --> Pod1
     Service --> Pod2
     Service --> PodN
-    
+
     Deployment --> Pod1
     Deployment --> Pod2
     Deployment --> PodN
-    
+
     Pod1 --> ConfigMap
     Pod1 --> Secret
     Pod1 --> PVC
-    
+
     Pod2 --> ConfigMap
     Pod2 --> Secret
     Pod2 --> PVC
-    
+
     PodN --> ConfigMap
     PodN --> Secret
     PodN --> PVC
-    
+
     Pod1 --> Upstream
     Pod2 --> Upstream
     PodN --> Upstream
