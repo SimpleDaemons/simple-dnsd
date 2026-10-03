@@ -1,3 +1,3 @@
 # Status
 
-**0.9.0** REST API. Zone transfers next.
+**0.10.0** AXFR/NOTIFY/TSIG. Performance limits next.

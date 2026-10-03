@@ -1,7 +1,7 @@
 # Feature audit
 
-| Area | 0.9.0 |
+| Area | 0.10.0 |
 |------|-------|
-| Backends / CLI | Implemented |
-| REST API | Implemented |
-| AXFR / NOTIFY / TSIG | Not yet |
+| Backends / CLI / REST | Implemented |
+| AXFR / NOTIFY / TSIG | Implemented |
+| Cache / RRL / RFC 2136 | Not yet |

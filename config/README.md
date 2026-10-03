@@ -12,3 +12,7 @@ Key/value syntax (`name = value`). Comments start with `#`.
 | foreground | true | Stay in the foreground |
 | edns_bufsize | 1232 | Advertised EDNS UDP size |
 | worker_threads | 4 | UDP workers (`1` is inline) |
+| allow_axfr | | Repeatable. Client IPs allowed to AXFR |
+| also_notify | | Repeatable. Extra NOTIFY targets |
+| tsig_key_name | | TSIG key name |
+| tsig_key_secret | | Base64 HMAC-SHA256 secret |

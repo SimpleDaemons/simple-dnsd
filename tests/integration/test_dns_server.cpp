@@ -50,6 +50,7 @@ int main() {
   cfg.api_listen = "127.0.0.1";
   cfg.api_port = 0;
   cfg.api_key = "testkey";
+  cfg.allow_axfr = {"127.0.0.1"};
 
   DnsServer server(cfg);
   assert(server.start());
@@ -60,6 +61,7 @@ int main() {
 
   ZoneInfo z;
   z.name = DnsName::parse("example.com");
+  z.allow_axfr = {"127.0.0.1"};
   assert(server.router().createZone(
       z, rr("example.com.", RrType::Soa,
             "ns.example.com. hostmaster.example.com. 1 10800 3600 604800 3600")));
@@ -92,6 +94,18 @@ int main() {
   assert(decodeMessage(twire, tmsg));
   assert(tmsg.header.rcode == Rcode::NoError);
   tcp->close();
+
+  auto xfr = TcpConnection::connectTo("127.0.0.1", dns_port);
+  assert(xfr);
+  auto axfrq = makeQuery(z.name, RrType::Axfr, 13);
+  assert(xfr->sendDnsMessage(encodeMessage(axfrq)));
+  std::vector<uint8_t> axfr_wire;
+  assert(xfr->recvDnsMessage(axfr_wire));
+  DnsMessage axfr;
+  assert(decodeMessage(axfr_wire, axfr));
+  assert(axfr.header.rcode == Rcode::NoError);
+  assert(axfr.answers.size() >= 3);
+  xfr->close();
 
   auto http = TcpConnection::connectTo("127.0.0.1", api_port);
   assert(http);

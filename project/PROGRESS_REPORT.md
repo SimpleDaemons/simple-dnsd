@@ -1,7 +1,7 @@
 # Progress report
 
-**Version:** 0.9.0
+**Version:** 0.10.0
 
-Authoritative UDP/TCP, five backends, simple-dnsutil, and a REST API subset verified by `test_dns_server`. No AXFR/NOTIFY/TSIG yet.
+AXFR over TCP gated by `allow_axfr`, NOTIFY to `also_notify`, secondary refresh, TSIG HMAC-SHA256 (OpenSSL). `test_dns_tsig` and the live AXFR check pass.
 
 **1.0.0 is not the current version.**

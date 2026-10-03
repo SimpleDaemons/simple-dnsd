@@ -12,7 +12,7 @@ Git tags and GitHub Releases use the `vMAJOR.MINOR.PATCH` form and point at the 
 
 ## Current version
 
-**0.9.0** — REST API subset. See [CHANGELOG.md](CHANGELOG.md) and [project/ROADMAP_CHECKLIST.md](project/ROADMAP_CHECKLIST.md).
+**0.10.0** — AXFR out, NOTIFY to also_notify, secondary pull, TSIG HMAC-SHA256 with test_dns_tsig. See [CHANGELOG.md](CHANGELOG.md) and [project/ROADMAP_CHECKLIST.md](project/ROADMAP_CHECKLIST.md).
 
 ## Milestone map
 
@@ -26,8 +26,8 @@ Git tags and GitHub Releases use the `vMAJOR.MINOR.PATCH` form and point at the 
 | **0.6.0** | 6 — SQLite | gsql schema + SQLite | Done |
 | **0.7.0** | 7 — PostgreSQL / MySQL | Remote SQL backends, `launch=` router | Done |
 | **0.8.0** | 8 — CLI | `simple-dnsutil` zone/record/export commands | Done |
-| **0.9.0** | 9 — REST API | `/api/v1/servers/localhost/zones` subset | Current |
-| **0.10.0** | 10 — Zone transfers | AXFR, NOTIFY, secondary, TSIG HMAC-SHA256 | Not yet |
+| **0.9.0** | 9 — REST API | `/api/v1/servers/localhost/zones` subset | Done |
+| **0.10.0** | 10 — Zone transfers | AXFR, NOTIFY, secondary, TSIG HMAC-SHA256 | Current |
 | **0.11.0** | 11 — Performance | Workers, packet cache, RRL, limits, stats | Not yet |
 | **0.12.0** | 12 — Dynamic updates | RFC 2136 UPDATE | Not yet |
 | **0.13.0** | 13 — Hardening | Privilege drop, CI, docs | Not yet |

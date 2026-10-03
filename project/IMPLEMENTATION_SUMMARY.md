@@ -1,3 +1,3 @@
 # Summary
 
-**0.9.0** adds the REST API subset.
+**0.10.0** adds zone transfers and TSIG.

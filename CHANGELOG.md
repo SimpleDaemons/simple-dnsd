@@ -1,7 +1,10 @@
 # Changelog
 
 ## [Unreleased]
-Work toward 0.10.0 (AXFR, NOTIFY, TSIG).
+Work toward 0.11.0 (packet cache, RRL, limits).
+
+## [0.10.0] — 2026-10-03
+AXFR out, NOTIFY to also_notify, secondary pull, TSIG HMAC-SHA256 with test_dns_tsig.
 
 ## [0.9.0] — 2026-10-03
 REST API subset under `/api/v1/servers/localhost` with `X-API-Key`; live API test.

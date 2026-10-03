@@ -4,7 +4,7 @@
 
 GMMAKE ?= gmake
 PROJECT_NAME = simple-dnsd
-VERSION = 0.9.0
+VERSION = 0.10.0
 
 # Common entry points
 all build clean install uninstall test package deps dev-deps help help-all \

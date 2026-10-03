@@ -1,7 +1,7 @@
 # simple-dnsd — Roadmap Checklist
 
-**Current version:** 0.9.0  
-**Overall progress:** Milestones 1–9. Later milestones are the plan, not implemented.
+**Current version:** 0.10.0  
+**Overall progress:** Milestones 1–10. Later milestones are the plan, not implemented.
 **Honest assessment:** Prefer [PROGRESS_REPORT.md](PROGRESS_REPORT.md).
 
 **Product line:** Production (Apache 2.0) — single-host authoritative DNS (not a recursor). Docker is out of scope.
@@ -239,20 +239,20 @@ Each version must `cmake` configure, compile, and pass `ctest` (see [VERSIONING.
 
 ## Milestone 10 — Zone transfers — v0.10.0
 
-**Status:** Planned
+**Status:** Done
 
 ### AXFR / NOTIFY / secondary / TSIG
-- [ ] AXFR out on TCP with `allow_axfr`
-- [ ] NOTIFY to `also_notify`
-- [ ] Secondary pull (`ZoneKind::Slave`, `master`)
-- [ ] TSIG HMAC-SHA256 (`tsig_key_name`, `tsig_key_secret`)
-- [ ] `test_dns_tsig`
-- [ ] OpenSSL `ENABLE_SSL`
+- [x] AXFR out on TCP with `allow_axfr`
+- [x] NOTIFY to `also_notify`
+- [x] Secondary pull (`ZoneKind::Slave`, `master`)
+- [x] TSIG HMAC-SHA256 (`tsig_key_name`, `tsig_key_secret`)
+- [x] `test_dns_tsig`
+- [x] OpenSSL `ENABLE_SSL`
 
 ### Build verification
-- [ ] Version files are `0.10.0`
-- [ ] Configure, compile, `ctest`
-- [ ] `./build/simple-dnsd --version` prints `0.10.0`
+- [x] Version files are `0.10.0`
+- [x] Configure, compile, `ctest`
+- [x] `./build/simple-dnsd --version` prints `0.10.0`
 
 ---
 

@@ -1,3 +1,3 @@
 # Overview
 
-**Version:** 0.9.0 — REST API subset on top of backends and CLI.
+**Version:** 0.10.0 — zone transfers and TSIG.
