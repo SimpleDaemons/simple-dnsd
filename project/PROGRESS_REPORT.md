@@ -1,10 +1,10 @@
 # Progress report
 
-**Version:** 0.1.0  
+**Version:** 0.2.0  
 **Date:** 2026-10-03
 
-0.1.0 is a **skeleton**. `simple-dnsd --version` and `simple-dnsutil --version` work. There is no DNS socket, no codec, and no zone data.
+0.2.0 parses `name = value` config and logs. `simple-dnsd --test-config` validates a file. There is still no DNS socket and no codec.
 
-`ctest` has no tests yet; ENABLE_TESTS is on so later minors can add them without flipping CMake options.
+`ctest` runs `test_dns_config`.
 
 **1.0.0 is not the current version.**

@@ -4,12 +4,14 @@ Use `config/templates/` for shipped defaults.
 
 Key/value syntax (`name = value`). Comments start with `#`.
 
-The 0.1.0 daemon checks that `--config FILE` is readable. Parsing keys starts in 0.2.0.
+The 0.2.0 daemon parses and validates this file. DNS listen starts in 0.4.0.
 
 | Key | Default | Notes |
 |-----|---------|-------|
 | listen_address | 0.0.0.0 | Bind address (used from 0.4.0) |
 | dns_port | 53 | Authoritative DNS port (5353 in development) |
+| launch | memory | Backend list (memory until 0.5.0+) |
+| log_file | | Optional log path |
+| log_level | info | `debug`, `info`, `warning`, `error`, `fatal` |
 | foreground | true | Stay in the foreground |
-| log_file | | Optional log path (used from 0.2.0) |
-| log_level | info | Used from 0.2.0 |
+| service_user | | Drop privileges (used from 0.13.0) |

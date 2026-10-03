@@ -1,6 +1,7 @@
-# simple-dnsd lab example (0.1.0 skeleton)
+# simple-dnsd lab example
 
 listen_address = 127.0.0.1
 dns_port = 5353
-foreground = true
+launch = memory
 log_level = debug
+foreground = true

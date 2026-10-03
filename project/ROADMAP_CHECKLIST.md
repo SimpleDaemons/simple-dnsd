@@ -1,7 +1,7 @@
 # simple-dnsd — Roadmap Checklist
 
-**Current version:** 0.1.0  
-**Overall progress:** Milestone 1 (skeleton) only. Later milestones are the plan, not implemented.
+**Current version:** 0.2.0  
+**Overall progress:** Milestones 1–2. Later milestones are the plan, not implemented.
 **Honest assessment:** Prefer [PROGRESS_REPORT.md](PROGRESS_REPORT.md).
 
 **Product line:** Production (Apache 2.0) — single-host authoritative DNS (not a recursor). Docker is out of scope.
@@ -48,28 +48,28 @@ Each version must `cmake` configure, compile, and pass `ctest` (see [VERSIONING.
 
 ## Milestone 2 — Skeleton realign — v0.2.0
 
-**Status:** Planned
+**Status:** Done
 
 ### Config and logging
-- [ ] Key/value `DnsConfig` parser (`name = value`, `#` comments)
-- [ ] `validate` / `validateDetailed`
-- [ ] Logger levels: debug, info, warning, error, fatal
-- [ ] Optional `log_file`
+- [x] Key/value `DnsConfig` parser (`name = value`, `#` comments)
+- [x] `validate` / `validateDetailed`
+- [x] Logger levels: debug, info, warning, error, fatal
+- [x] Optional `log_file`
 
 ### CMake options
-- [ ] `ENABLE_TESTS`, `ENABLE_PACKAGING`, `ENABLE_SSL`, `ENABLE_JSON`
-- [ ] `ENABLE_SQLITE`, `ENABLE_POSTGRES`, `ENABLE_MYSQL`, `ENABLE_STATIC_LINKING`
+- [x] `ENABLE_TESTS`, `ENABLE_PACKAGING`, `ENABLE_SSL`, `ENABLE_JSON`
+- [x] `ENABLE_SQLITE`, `ENABLE_POSTGRES`, `ENABLE_MYSQL`, `ENABLE_STATIC_LINKING`
 
 ### Tests and templates
-- [ ] `test_dns_config`
-- [ ] `config/templates/development.conf` (127.0.0.1:5353)
-- [ ] `config/templates/production.conf` (0.0.0.0:53, `service_user`)
-- [ ] `config/README.md` key table
+- [x] `test_dns_config`
+- [x] `config/templates/development.conf` (127.0.0.1:5353)
+- [x] `config/templates/production.conf` (0.0.0.0:53, `service_user`)
+- [x] `config/README.md` key table
 
 ### Build verification
-- [ ] Version files are `0.2.0`
-- [ ] Configure, compile, `ctest` (at least `test_dns_config`)
-- [ ] `./build/simple-dnsd --version` prints `0.2.0`
+- [x] Version files are `0.2.0`
+- [x] Configure, compile, `ctest` (at least `test_dns_config`)
+- [x] `./build/simple-dnsd --version` prints `0.2.0`
 
 ---
 
