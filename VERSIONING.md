@@ -12,15 +12,15 @@ Git tags and GitHub Releases use the `vMAJOR.MINOR.PATCH` form and point at the 
 
 ## Current version
 
-**0.2.0** — config parser, logger, and net helpers. See [CHANGELOG.md](CHANGELOG.md) and [project/ROADMAP_CHECKLIST.md](project/ROADMAP_CHECKLIST.md).
+**0.3.0** — RFC 1035 wire codec, DnsName, EDNS0. See [CHANGELOG.md](CHANGELOG.md) and [project/ROADMAP_CHECKLIST.md](project/ROADMAP_CHECKLIST.md).
 
 ## Milestone map
 
 | Version | Milestone | What it means | Status |
 |---------|-----------|---------------|--------|
 | **0.1.0** | 1 — Skeleton | Template CMake / GNU Make / packaging / CLI stubs | Done |
-| **0.2.0** | 2 — Skeleton realign | ldapd-style CMake/CPack, config parser, tests tree | Current |
-| **0.3.0** | 3 — Wire codec | RFC 1035 + EDNS0 + DnsName | Not yet |
+| **0.2.0** | 2 — Skeleton realign | ldapd-style CMake/CPack, config parser, tests tree | Done |
+| **0.3.0** | 3 — Wire codec | RFC 1035 + EDNS0 + DnsName | Current |
 | **0.4.0** | 4 — Authoritative engine | UDP/TCP, memory backend, AA answers | Not yet |
 | **0.5.0** | 5 — Zone files | BIND parser/writer, flat-file backend, export/import | Not yet |
 | **0.6.0** | 6 — SQLite | gsql schema + SQLite | Not yet |

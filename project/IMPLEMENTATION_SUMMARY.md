@@ -1,5 +1,5 @@
 # Implementation summary
 
-**0.2.0** adds the config parser, logger, and net helpers. It does not answer DNS queries.
+**0.3.0** adds the RFC 1035 wire codec. It does not answer queries on the network.
 
-See [ROADMAP.md](../ROADMAP.md), [ROADMAP_CHECKLIST.md](ROADMAP_CHECKLIST.md), and [PROGRESS_REPORT.md](PROGRESS_REPORT.md).
+See [PROGRESS_REPORT.md](PROGRESS_REPORT.md).

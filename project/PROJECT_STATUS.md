@@ -1,17 +1,14 @@
 # Simple DNS Daemon - Project Status
 
-**Version:** 0.2.0  
-**Status:** Config and logger. **Does not serve DNS yet.**
+**Version:** 0.3.0  
+**Status:** Wire codec. **Does not serve DNS yet.**
 
-## Completed at 0.2.0
+## Completed at 0.3.0
 
-- Key/value config parser and validation
-- Logger with optional file
-- UDP/TCP helpers (not bound yet)
-- `test_dns_config`
-- CMake feature options for later SSL/JSON/SQL backends
+- `DnsName` and `DnsMessage` codec
+- EDNS0 OPT
+- `test_dns_name`, `test_dns_codec`
 
 ## Next
 
-- 0.3.0 wire codec
 - 0.4.0 UDP/TCP listen and memory backend

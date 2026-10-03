@@ -1,12 +1,10 @@
 # Feature audit
 
-**Current version:** 0.2.0. See [ROADMAP_CHECKLIST.md](ROADMAP_CHECKLIST.md).
+**Current version:** 0.3.0. See [ROADMAP_CHECKLIST.md](ROADMAP_CHECKLIST.md).
 
-| Area | Status at 0.2.0 |
+| Area | Status at 0.3.0 |
 |------|------------------|
-| CMake / GNU Make / CPack | Implemented |
-| Config parser / logger | Implemented |
-| UDP/TCP helpers | Implemented (not listening) |
+| CMake / config / logger | Implemented |
+| RFC 1035 codec / DnsName / EDNS0 | Implemented |
 | UDP/TCP 53 | Not yet (0.4.0) |
 | Authoritative answers | Not yet (0.4.0) |
-| Recursion | Out of scope |

@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.16)
 if(APPLE)
     set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Minimum macOS version")
 endif()
-project(simple-dnsd VERSION 0.2.0 LANGUAGES CXX)
+project(simple-dnsd VERSION 0.3.0 LANGUAGES CXX)
 
 set(PROJECT_DESCRIPTION "Simple DNS Daemon - An authoritative DNS server")
 
@@ -312,6 +312,8 @@ if(ENABLE_TESTS)
         add_test(NAME ${name} COMMAND ${name})
     endfunction()
     add_dns_test(test_dns_config tests/unit/test_dns_config.cpp)
+    add_dns_test(test_dns_name tests/unit/test_dns_name.cpp)
+    add_dns_test(test_dns_codec tests/unit/test_dns_codec.cpp)
 endif()
 
 if(ENABLE_PACKAGING)

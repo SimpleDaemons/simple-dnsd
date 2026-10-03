@@ -1,7 +1,7 @@
 # simple-dnsd — Roadmap Checklist
 
-**Current version:** 0.2.0  
-**Overall progress:** Milestones 1–2. Later milestones are the plan, not implemented.
+**Current version:** 0.3.0  
+**Overall progress:** Milestones 1–3. Later milestones are the plan, not implemented.
 **Honest assessment:** Prefer [PROGRESS_REPORT.md](PROGRESS_REPORT.md).
 
 **Product line:** Production (Apache 2.0) — single-host authoritative DNS (not a recursor). Docker is out of scope.
@@ -75,28 +75,28 @@ Each version must `cmake` configure, compile, and pass `ctest` (see [VERSIONING.
 
 ## Milestone 3 — Wire codec — v0.3.0
 
-**Status:** Planned
+**Status:** Done
 
 ### Names and messages
-- [ ] `DnsName` parse, wire encode/decode, compression pointers
-- [ ] Case-insensitive equality, parent/subdomain, wildcard, qualify/relative
-- [ ] `DnsMessage` / `DnsHeader` / `Question` / `ResourceRecord`
+- [x] `DnsName` parse, wire encode/decode, compression pointers
+- [x] Case-insensitive equality, parent/subdomain, wildcard, qualify/relative
+- [x] `DnsMessage` / `DnsHeader` / `Question` / `ResourceRecord`
 
 ### Types
-- [ ] Opcodes QUERY, NOTIFY, UPDATE
-- [ ] Rcodes including NXDOMAIN, NOTIMP, REFUSED, NOTAUTH, NOTZONE
-- [ ] A, NS, CNAME, SOA, PTR, MX, TXT, AAAA, SRV, NAPTR, CAA
-- [ ] OPT (EDNS0), TSIG/AXFR/IXFR/ANY type numbers
-- [ ] RFC 3597 unknown-type content
+- [x] Opcodes QUERY, NOTIFY, UPDATE
+- [x] Rcodes including NXDOMAIN, NOTIMP, REFUSED, NOTAUTH, NOTZONE
+- [x] A, NS, CNAME, SOA, PTR, MX, TXT, AAAA, SRV, NAPTR, CAA
+- [x] OPT (EDNS0), TSIG/AXFR/IXFR/ANY type numbers
+- [x] RFC 3597 unknown-type content
 
 ### Tests
-- [ ] `test_dns_name`
-- [ ] `test_dns_codec`
+- [x] `test_dns_name`
+- [x] `test_dns_codec`
 
 ### Build verification
-- [ ] Version files are `0.3.0`
-- [ ] Configure, compile, `ctest`
-- [ ] `./build/simple-dnsd --version` prints `0.3.0`
+- [x] Version files are `0.3.0`
+- [x] Configure, compile, `ctest`
+- [x] `./build/simple-dnsd --version` prints `0.3.0`
 
 ---
 
