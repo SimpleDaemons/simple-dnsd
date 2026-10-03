@@ -1,3 +1,3 @@
 # Overview
 
-**Version:** 0.7.0 — all gsql backends plus BIND and memory.
+**Version:** 0.8.0 — zone CLI plus all backends.

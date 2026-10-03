@@ -1,7 +1,7 @@
 # simple-dnsd — Roadmap Checklist
 
-**Current version:** 0.7.0  
-**Overall progress:** Milestones 1–7. Later milestones are the plan, not implemented.
+**Current version:** 0.8.0  
+**Overall progress:** Milestones 1–8. Later milestones are the plan, not implemented.
 **Honest assessment:** Prefer [PROGRESS_REPORT.md](PROGRESS_REPORT.md).
 
 **Product line:** Production (Apache 2.0) — single-host authoritative DNS (not a recursor). Docker is out of scope.
@@ -197,22 +197,22 @@ Each version must `cmake` configure, compile, and pass `ctest` (see [VERSIONING.
 
 ## Milestone 8 — CLI — v0.8.0
 
-**Status:** Planned
+**Status:** Done
 
 ### simple-dnsutil
-- [ ] `list-zones` / `list-zone`
-- [ ] `create-zone` / `delete-zone`
-- [ ] `add-record` / `replace-rrset` / `delete-rrset`
-- [ ] `check-zone` / `rectify-zone` / `increase-serial`
-- [ ] `export-bind` / `import-bind`
-- [ ] `backend-copy`
-- [ ] `--config` / `--version` / `--help`
-- [ ] `continuous_export`
+- [x] `list-zones` / `list-zone`
+- [x] `create-zone` / `delete-zone`
+- [x] `add-record` / `replace-rrset` / `delete-rrset`
+- [x] `check-zone` / `rectify-zone` / `increase-serial`
+- [x] `export-bind` / `import-bind`
+- [x] `backend-copy`
+- [x] `--config` / `--version` / `--help`
+- [x] `continuous_export`
 
 ### Build verification
-- [ ] Version files are `0.8.0`
-- [ ] Configure, compile, `ctest`
-- [ ] `./build/simple-dnsutil --version` prints `0.8.0`
+- [x] Version files are `0.8.0`
+- [x] Configure, compile, `ctest`
+- [x] `./build/simple-dnsutil --version` prints `0.8.0`
 
 ---
 

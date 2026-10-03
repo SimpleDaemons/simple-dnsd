@@ -1,3 +1,3 @@
 # Summary
 
-**0.7.0** adds PostgreSQL and MySQL backends.
+**0.8.0** adds simple-dnsutil.

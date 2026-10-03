@@ -1,6 +1,7 @@
 # Feature audit
 
-| Area | 0.7.0 |
+| Area | 0.8.0 |
 |------|-------|
-| Memory / BIND / SQLite / Postgres / MySQL | Implemented |
-| simple-dnsutil zone commands | Not yet |
+| Backends | memory, BIND, SQLite, Postgres, MySQL |
+| simple-dnsutil | Implemented |
+| REST | Not yet |

@@ -1,3 +1,3 @@
 # Status
 
-**0.7.0** Postgres/MySQL gsql. CLI next.
+**0.8.0** simple-dnsutil zone commands. REST next.

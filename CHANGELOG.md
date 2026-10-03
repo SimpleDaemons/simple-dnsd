@@ -1,10 +1,13 @@
 # Changelog
 
 ## [Unreleased]
-Work toward 0.8.0 (`simple-dnsutil` zone commands).
+Work toward 0.9.0 (REST API).
+
+## [0.8.0] — 2026-10-03
+`simple-dnsutil` zone/record/export/import commands.
 
 ## [0.7.0] — 2026-10-03
-PostgreSQL and MySQL/MariaDB gsql backends; `launch=` router already present.
+PostgreSQL and MySQL gsql.
 
 ## [0.6.0] — 2026-10-03
 SQLite gsql.
@@ -13,7 +16,7 @@ SQLite gsql.
 BIND zone files.
 
 ## [0.4.0] — 2026-10-03
-UDP/TCP engine and memory backend.
+UDP/TCP engine.
 
 ## [0.3.0] — 2026-10-03
 RFC 1035 codec.

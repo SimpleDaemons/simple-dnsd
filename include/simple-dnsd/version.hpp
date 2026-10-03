@@ -10,7 +10,7 @@
 
 namespace simple_dnsd {
 
-inline constexpr const char *kVersion = "0.7.0";
+inline constexpr const char *kVersion = "0.8.0";
 inline constexpr const char *kProjectName = "simple-dnsd";
 inline constexpr const char *kDescription =
     "Simple DNS Daemon - An authoritative DNS server";
