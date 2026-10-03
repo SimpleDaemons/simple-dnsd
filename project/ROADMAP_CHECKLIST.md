@@ -1,7 +1,7 @@
 # simple-dnsd — Roadmap Checklist
 
-**Current version:** 0.12.0  
-**Overall progress:** Milestones 1–12. Later milestones are the plan, not implemented.
+**Current version:** 0.13.0  
+**Overall progress:** Milestones 1–13. Later milestones are the plan, not implemented.
 **Honest assessment:** Prefer [PROGRESS_REPORT.md](PROGRESS_REPORT.md).
 
 **Product line:** Production (Apache 2.0) — single-host authoritative DNS (not a recursor). Docker is out of scope.
@@ -296,18 +296,18 @@ Each version must `cmake` configure, compile, and pass `ctest` (see [VERSIONING.
 
 ## Milestone 13 — Hardening — v0.13.0
 
-**Status:** Current
+**Status:** Done
 
 ### Hardening
-- [ ] `service_user` privilege drop after bind (Unix)
-- [ ] GitHub Actions `ctest` workflow (`.github/workflows/ci.yml`)
-- [ ] Docs pass (README, BUILD_GUIDE, config README, diagrams, project folder)
-- [ ] Input limits from 0.11.0 applied
+- [x] `service_user` privilege drop after bind (Unix)
+- [x] GitHub Actions `ctest` workflow (`.github/workflows/ci.yml`)
+- [x] Docs pass (README, BUILD_GUIDE, config README, diagrams, project folder)
+- [x] Input limits from 0.11.0 applied
 
 ### Build verification
-- [ ] Version files are `0.13.0`
-- [ ] Configure, compile, `ctest` (all tests)
-- [ ] `./build/simple-dnsd --version` prints `0.13.0`
+- [x] Version files are `0.13.0`
+- [x] Configure, compile, `ctest` (all tests)
+- [x] `./build/simple-dnsd --version` prints `0.13.0`
 
 ---
 

@@ -1,7 +1,22 @@
 # Changelog
 
 ## [Unreleased]
-Work toward 0.13.0 (privilege drop, CI, docs).
+Work toward the 1.0.0 contract cut only when requested; no new 0.x features planned.
+
+## [0.13.0] — 2026-10-03
+
+Milestone 13 — Hardening. Last 0.x milestone; **1.0.0 is not cut**.
+
+### Added
+
+- `service_user` privilege drop after bind (Unix)
+- GitHub Actions `ctest` workflow
+- Docs pass: README, BUILD_GUIDE, config README, project folder
+
+### Notes
+
+- `--daemon` does not fork; use the OS supervisor.
+- Not in 0.x: DNSSEC signing, DoT/DoH, recursion, Docker.
 
 ## [0.12.0] — 2026-10-03
 RFC 2136 UPDATE with allow_update/TSIG, SOA serial bump, cache invalidation, live test.

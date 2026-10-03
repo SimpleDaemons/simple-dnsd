@@ -1,6 +1,6 @@
 /**
  * @file test_dns_server.cpp
- * @brief Live UDP/TCP authoritative answers (0.4.0)
+ * @brief Live UDP/TCP, AXFR, UPDATE, cache, and API tests
  * @author SimpleDaemons
  * @copyright 2026 SimpleDaemons
  * @license Apache-2.0
