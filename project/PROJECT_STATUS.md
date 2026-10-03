@@ -1,3 +1,3 @@
 # Status
 
-**0.10.0** AXFR/NOTIFY/TSIG. Performance limits next.
+**0.11.0** packet cache / RRL / limits. RFC 2136 next.

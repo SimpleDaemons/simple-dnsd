@@ -1,7 +1,10 @@
 # Changelog
 
 ## [Unreleased]
-Work toward 0.11.0 (packet cache, RRL, limits).
+Work toward 0.12.0 (RFC 2136 UPDATE).
+
+## [0.11.0] — 2026-10-03
+Packet cache wired into query path, RRL, TCP/packet limits, worker threads, ServerStats.
 
 ## [0.10.0] — 2026-10-03
 AXFR out, NOTIFY to also_notify, secondary pull, TSIG HMAC-SHA256 with test_dns_tsig.

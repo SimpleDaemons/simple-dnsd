@@ -16,3 +16,9 @@ Key/value syntax (`name = value`). Comments start with `#`.
 | also_notify | | Repeatable. Extra NOTIFY targets |
 | tsig_key_name | | TSIG key name |
 | tsig_key_secret | | Base64 HMAC-SHA256 secret |
+| cache_size | 10000 | Packet cache entries; `0` disables |
+| cache_ttl | 0 | Cache TTL seconds; `0` uses the lowest RR TTL |
+| rrl_rate | 0 | Responses per second per client IP; `0` disables |
+| max_tcp_sessions | 128 | Concurrent TCP clients; `0` unlimited |
+| idle_timeout | 120 | TCP idle seconds |
+| max_packet_size | 4096 | Max TCP DNS message |

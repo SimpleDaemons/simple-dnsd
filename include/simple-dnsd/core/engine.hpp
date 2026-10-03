@@ -86,6 +86,7 @@ public:
   void addTsigKey(const TsigKey &key);
 
 private:
+  DnsMessage answerCached(const DnsMessage &query, const QueryContext &ctx);
   DnsMessage answerQuery(const DnsMessage &query, const QueryContext &ctx);
   DnsMessage handleUpdate(const DnsMessage &query, const QueryContext &ctx);
   void addSoa(DnsMessage &resp, const ZoneInfo &zone);

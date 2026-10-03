@@ -77,6 +77,15 @@ int main() {
   assert(a.header.rcode == Rcode::NoError);
   assert(!a.answers.empty());
 
+  // Second identical query is served from the packet cache.
+  const auto misses_before = server.stats().cache_misses.load();
+  const auto hits_before = server.stats().cache_hits.load();
+  auto a2 = queryUdp(dns_port, DnsName::parse("www.example.com"), RrType::A);
+  assert(a2.header.rcode == Rcode::NoError);
+  assert(server.stats().cache_hits.load() > hits_before);
+  assert(server.stats().cache_misses.load() == misses_before);
+  assert(server.stats().queries.load() >= 2);
+
   auto nx = queryUdp(dns_port, DnsName::parse("missing.example.com"), RrType::A);
   assert(nx.header.rcode == Rcode::NxDomain);
 

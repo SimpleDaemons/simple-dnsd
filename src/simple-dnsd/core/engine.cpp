@@ -11,6 +11,7 @@
 #include "simple-dnsd/utils/net.hpp"
 #include "simple-dnsd/zone/zone.hpp"
 
+#include <algorithm>
 #include <chrono>
 #include <sstream>
 
@@ -234,15 +235,50 @@ DnsMessage AuthoritativeEngine::handle(const DnsMessage &query, const QueryConte
     auto msgs = handleAxfr(query, ctx);
     return msgs.empty() ? makeResponse(query) : msgs.front();
   }
-  return answerQuery(query, ctx);
+  return answerCached(query, ctx);
+}
+
+DnsMessage AuthoritativeEngine::answerCached(const DnsMessage &query, const QueryContext &ctx) {
+  const Question &q = query.questions[0];
+  const std::string key = q.qname.toLowerString() + "|" + rrTypeToString(q.qtype) + "|" +
+                          (ctx.tcp ? "t" : "u") + (query.edns.present ? "|e" : "");
+  if (config_.cache_size > 0) {
+    std::vector<uint8_t> wire;
+    if (cache_.get(key, wire)) {
+      DnsMessage cached;
+      if (decodeMessage(wire, cached)) {
+        cached.header.id = query.header.id;
+        stats_.cache_hits.fetch_add(1);
+        stats_.answers.fetch_add(1);
+        return cached;
+      }
+    }
+    stats_.cache_misses.fetch_add(1);
+  }
+  auto resp = answerQuery(query, ctx);
+  if (config_.cache_size > 0 &&
+      (resp.header.rcode == Rcode::NoError || resp.header.rcode == Rcode::NxDomain)) {
+    uint32_t ttl = config_.cache_ttl;
+    if (ttl == 0) {
+      for (const auto *set : {&resp.answers, &resp.authority}) {
+        for (const auto &rr : *set) {
+          if (rr.type == RrType::Opt) {
+            continue;
+          }
+          ttl = (ttl == 0) ? rr.ttl : std::min(ttl, rr.ttl);
+        }
+      }
+    }
+    if (ttl > 0) {
+      cache_.put(key, encodeMessage(resp), ttl);
+    }
+  }
+  return resp;
 }
 
 DnsMessage AuthoritativeEngine::answerQuery(const DnsMessage &query, const QueryContext &ctx) {
   auto resp = makeResponse(query);
   const Question &q = query.questions[0];
-  const std::string cache_key =
-      q.qname.toLowerString() + "|" + rrTypeToString(q.qtype) + "|" + (ctx.tcp ? "t" : "u");
-  (void)cache_key;
 
   auto zone = router_.findZone(q.qname);
   if (!zone) {

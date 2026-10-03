@@ -1,7 +1,7 @@
 # simple-dnsd — Roadmap Checklist
 
-**Current version:** 0.10.0  
-**Overall progress:** Milestones 1–10. Later milestones are the plan, not implemented.
+**Current version:** 0.11.0  
+**Overall progress:** Milestones 1–11. Later milestones are the plan, not implemented.
 **Honest assessment:** Prefer [PROGRESS_REPORT.md](PROGRESS_REPORT.md).
 
 **Product line:** Production (Apache 2.0) — single-host authoritative DNS (not a recursor). Docker is out of scope.
@@ -258,22 +258,22 @@ Each version must `cmake` configure, compile, and pass `ctest` (see [VERSIONING.
 
 ## Milestone 11 — Performance — v0.11.0
 
-**Status:** Planned
+**Status:** Done
 
 ### Runtime
-- [ ] UDP `worker_threads` (`1` is inline)
-- [ ] Packet cache (`cache_size`, `cache_ttl`; `0` disables)
-- [ ] Response rate limiting (`rrl_rate`; `0` disables)
-- [ ] `max_tcp_sessions`, `idle_timeout`, `max_packet_size`
-- [ ] `ServerStats` counters
+- [x] UDP `worker_threads` (`1` is inline)
+- [x] Packet cache (`cache_size`, `cache_ttl`; `0` disables)
+- [x] Response rate limiting (`rrl_rate`; `0` disables)
+- [x] `max_tcp_sessions`, `idle_timeout`, `max_packet_size`
+- [x] `ServerStats` counters
 
 ### Tests
-- [ ] `test_dns_server` (live UDP/TCP/API)
+- [x] `test_dns_server` (live UDP/TCP/API)
 
 ### Build verification
-- [ ] Version files are `0.11.0`
-- [ ] Configure, compile, `ctest`
-- [ ] `./build/simple-dnsd --version` prints `0.11.0`
+- [x] Version files are `0.11.0`
+- [x] Configure, compile, `ctest`
+- [x] `./build/simple-dnsd --version` prints `0.11.0`
 
 ---
 

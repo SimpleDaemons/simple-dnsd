@@ -1,7 +1,7 @@
 # Feature audit
 
-| Area | 0.10.0 |
+| Area | 0.11.0 |
 |------|-------|
-| Backends / CLI / REST | Implemented |
-| AXFR / NOTIFY / TSIG | Implemented |
-| Cache / RRL / RFC 2136 | Not yet |
+| Backends / CLI / REST / AXFR / TSIG | Implemented |
+| Packet cache / RRL / limits | Implemented |
+| RFC 2136 UPDATE | Not yet |

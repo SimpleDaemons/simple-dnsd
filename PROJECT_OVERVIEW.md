@@ -1,3 +1,3 @@
 # Overview
 
-**Version:** 0.10.0 — zone transfers and TSIG.
+**Version:** 0.11.0 — cache, RRL, limits, stats.
