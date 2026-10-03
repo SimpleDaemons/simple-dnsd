@@ -1,0 +1,58 @@
+-- gsql schema for simple-dnsd
+CREATE TABLE IF NOT EXISTS domains (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  master VARCHAR(128) DEFAULT NULL,
+  last_check INTEGER DEFAULT NULL,
+  type VARCHAR(8) NOT NULL,
+  notified_serial INTEGER DEFAULT NULL,
+  account VARCHAR(40) DEFAULT NULL,
+  options TEXT DEFAULT NULL,
+  catalog VARCHAR(255) DEFAULT NULL
+);
+CREATE UNIQUE INDEX IF NOT EXISTS name_index ON domains(name);
+CREATE TABLE IF NOT EXISTS records (
+  id INTEGER PRIMARY KEY,
+  domain_id INTEGER DEFAULT NULL,
+  name VARCHAR(255) DEFAULT NULL,
+  type VARCHAR(10) DEFAULT NULL,
+  content VARCHAR(65535) DEFAULT NULL,
+  ttl INTEGER DEFAULT NULL,
+  prio INTEGER DEFAULT NULL,
+  disabled BOOLEAN DEFAULT 0,
+  ordername VARCHAR(255),
+  auth INTEGER DEFAULT 1,
+  FOREIGN KEY(domain_id) REFERENCES domains(id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS rec_name_index ON records(name);
+CREATE INDEX IF NOT EXISTS nametype_index ON records(name,type);
+CREATE INDEX IF NOT EXISTS domain_id ON records(domain_id);
+CREATE TABLE IF NOT EXISTS comments (
+  id INTEGER PRIMARY KEY,
+  domain_id INTEGER NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  type VARCHAR(10) NOT NULL,
+  modified_at INT NOT NULL,
+  account VARCHAR(40) DEFAULT NULL,
+  comment VARCHAR(65535) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS domainmetadata (
+  id INTEGER PRIMARY KEY,
+  domain_id INTEGER NOT NULL,
+  kind VARCHAR(32),
+  content TEXT
+);
+CREATE TABLE IF NOT EXISTS cryptokeys (
+  id INTEGER PRIMARY KEY,
+  domain_id INTEGER NOT NULL,
+  flags INT NOT NULL,
+  active BOOL,
+  published BOOL DEFAULT 1,
+  content TEXT
+);
+CREATE TABLE IF NOT EXISTS tsigkeys (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(255),
+  algorithm VARCHAR(50),
+  secret VARCHAR(255)
+);

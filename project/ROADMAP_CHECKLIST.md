@@ -1,7 +1,7 @@
 # simple-dnsd — Roadmap Checklist
 
-**Current version:** 0.5.0  
-**Overall progress:** Milestones 1–5. Later milestones are the plan, not implemented.
+**Current version:** 0.6.0  
+**Overall progress:** Milestones 1–6. Later milestones are the plan, not implemented.
 **Honest assessment:** Prefer [PROGRESS_REPORT.md](PROGRESS_REPORT.md).
 
 **Product line:** Production (Apache 2.0) — single-host authoritative DNS (not a recursor). Docker is out of scope.
@@ -156,21 +156,21 @@ Each version must `cmake` configure, compile, and pass `ctest` (see [VERSIONING.
 
 ## Milestone 6 — SQLite — v0.6.0
 
-**Status:** Planned
+**Status:** Done
 
 ### gsql
-- [ ] gsql tables: domains, records, domainmetadata, cryptokeys, tsigkeys, comments
-- [ ] `schema/sqlite.sql`
-- [ ] SQLite backend (`sqlite_file`)
-- [ ] CMake `ENABLE_SQLITE`
+- [x] gsql tables: domains, records, domainmetadata, cryptokeys, tsigkeys, comments
+- [x] `schema/sqlite.sql`
+- [x] SQLite backend (`sqlite_file`)
+- [x] CMake `ENABLE_SQLITE`
 
 ### Tests
-- [ ] `test_dns_backend` (unique temp DB file)
+- [x] `test_dns_backend` (unique temp DB file)
 
 ### Build verification
-- [ ] Version files are `0.6.0`
-- [ ] Configure, compile, `ctest`
-- [ ] `./build/simple-dnsd --version` prints `0.6.0`
+- [x] Version files are `0.6.0`
+- [x] Configure, compile, `ctest`
+- [x] `./build/simple-dnsd --version` prints `0.6.0`
 
 ---
 

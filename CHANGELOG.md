@@ -1,10 +1,13 @@
 # Changelog
 
 ## [Unreleased]
-Work toward 0.6.0 (SQLite gsql).
+Work toward 0.7.0 (PostgreSQL / MySQL).
+
+## [0.6.0] — 2026-10-03
+gsql schema and SQLite backend (`launch = sqlite`).
 
 ## [0.5.0] — 2026-10-03
-BIND master-file parser/writer, `named.conf` zone list, bind backend, export/import, `test_dns_zonefile`.
+BIND zone files.
 
 ## [0.4.0] — 2026-10-03
 UDP/TCP engine and memory backend.

@@ -16,11 +16,6 @@
 
 namespace simple_dnsd {
 
-std::unique_ptr<Backend> makeSqliteBackend(const std::string &, const std::string &) {
-  Logger::instance().error("sqlite backend arrives in 0.6.0");
-  return nullptr;
-}
-
 std::unique_ptr<Backend> makePostgresBackend(const std::string &) {
   Logger::instance().error("postgres backend arrives in 0.7.0");
   return nullptr;

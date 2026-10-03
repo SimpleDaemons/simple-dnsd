@@ -1,7 +1,6 @@
 # Feature audit
 
-| Area | 0.5.0 |
+| Area | 0.6.0 |
 |------|-------|
-| Memory backend | Implemented |
-| BIND zone files | Implemented |
-| SQL | Not yet |
+| Memory / BIND / SQLite | Implemented |
+| Postgres / MySQL | Not yet |

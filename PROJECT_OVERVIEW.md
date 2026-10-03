@@ -1,3 +1,3 @@
-# Simple DNS Daemon — Project Overview
+# Overview
 
-**Version:** 0.5.0 — BIND zone files plus memory backend.
+**Version:** 0.6.0 — SQLite gsql plus BIND and memory.

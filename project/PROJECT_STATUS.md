@@ -1,3 +1,3 @@
-# Project Status
+# Status
 
-**Version:** 0.5.0 — BIND files and memory backend. SQL/REST/CLI later.
+**0.6.0** SQLite gsql. Postgres/MySQL next.

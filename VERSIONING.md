@@ -12,7 +12,7 @@ Git tags and GitHub Releases use the `vMAJOR.MINOR.PATCH` form and point at the 
 
 ## Current version
 
-**0.5.0** — BIND zone files, export/import. See [CHANGELOG.md](CHANGELOG.md) and [project/ROADMAP_CHECKLIST.md](project/ROADMAP_CHECKLIST.md).
+**0.6.0** — gsql schema and SQLite backend. See [CHANGELOG.md](CHANGELOG.md) and [project/ROADMAP_CHECKLIST.md](project/ROADMAP_CHECKLIST.md).
 
 ## Milestone map
 
@@ -22,8 +22,8 @@ Git tags and GitHub Releases use the `vMAJOR.MINOR.PATCH` form and point at the 
 | **0.2.0** | 2 — Skeleton realign | ldapd-style CMake/CPack, config parser, tests tree | Done |
 | **0.3.0** | 3 — Wire codec | RFC 1035 + EDNS0 + DnsName | Done |
 | **0.4.0** | 4 — Authoritative engine | UDP/TCP, memory backend, AA answers | Done |
-| **0.5.0** | 5 — Zone files | BIND parser/writer, flat-file backend, export/import | Current |
-| **0.6.0** | 6 — SQLite | gsql schema + SQLite | Not yet |
+| **0.5.0** | 5 — Zone files | BIND parser/writer, flat-file backend, export/import | Done |
+| **0.6.0** | 6 — SQLite | gsql schema + SQLite | Current |
 | **0.7.0** | 7 — PostgreSQL / MySQL | Remote SQL backends, `launch=` router | Not yet |
 | **0.8.0** | 8 — CLI | `simple-dnsutil` zone/record/export commands | Not yet |
 | **0.9.0** | 9 — REST API | `/api/v1/servers/localhost/zones` subset | Not yet |
