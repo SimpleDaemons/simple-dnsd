@@ -1,0 +1,94 @@
+/**
+ * @file test_dns_server.cpp
+ * @brief Live UDP/TCP authoritative answers (0.4.0)
+ * @author SimpleDaemons
+ * @copyright 2026 SimpleDaemons
+ * @license Apache-2.0
+ */
+
+#include "simple-dnsd/core/server.hpp"
+#include "simple-dnsd/utils/net.hpp"
+#include "simple-dnsd/zone/zone.hpp"
+
+#include <cassert>
+#include <chrono>
+#include <iostream>
+#include <thread>
+
+using namespace simple_dnsd;
+
+static ResourceRecord rr(const char *name, RrType type, const char *content) {
+  ResourceRecord r;
+  r.name = DnsName::parse(name);
+  r.type = type;
+  r.content = content;
+  contentToRdata(r);
+  return r;
+}
+
+static DnsMessage queryUdp(port_t port, const DnsName &name, RrType type) {
+  auto q = makeQuery(name, type, 11);
+  auto wire = encodeMessage(q);
+  std::vector<uint8_t> reply;
+  assert(UdpSocket::sendOnce("127.0.0.1", port, wire, reply, 2000));
+  DnsMessage parsed;
+  assert(decodeMessage(reply, parsed));
+  return parsed;
+}
+
+int main() {
+  initializeSockets();
+  DnsConfig cfg;
+  cfg.listen_address = "127.0.0.1";
+  cfg.dns_port = 0;
+  cfg.launch = "memory";
+  cfg.worker_threads = 1;
+  cfg.idle_timeout = 1;
+  cfg.foreground = true;
+  cfg.log_level = "error";
+
+  DnsServer server(cfg);
+  assert(server.start());
+  const port_t dns_port = server.dnsPort();
+  assert(dns_port != 0);
+
+  ZoneInfo z;
+  z.name = DnsName::parse("example.com");
+  assert(server.router().createZone(
+      z, rr("example.com.", RrType::Soa,
+            "ns.example.com. hostmaster.example.com. 1 10800 3600 604800 3600")));
+  auto zone = server.router().findZone(z.name);
+  auto tx = server.router().begin(*zone);
+  tx->addRecord(rr("example.com.", RrType::Ns, "ns.example.com."));
+  tx->addRecord(rr("www.example.com.", RrType::A, "192.0.2.1"));
+  assert(tx->commit());
+
+  std::this_thread::sleep_for(std::chrono::milliseconds(50));
+
+  auto a = queryUdp(dns_port, DnsName::parse("www.example.com"), RrType::A);
+  assert(a.header.rcode == Rcode::NoError);
+  assert(!a.answers.empty());
+
+  auto nx = queryUdp(dns_port, DnsName::parse("missing.example.com"), RrType::A);
+  assert(nx.header.rcode == Rcode::NxDomain);
+
+  auto tcp = TcpConnection::connectTo("127.0.0.1", dns_port);
+  if (!tcp) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    tcp = TcpConnection::connectTo("127.0.0.1", dns_port);
+  }
+  assert(tcp);
+  auto tq = makeQuery(DnsName::parse("www.example.com"), RrType::A, 12);
+  assert(tcp->sendDnsMessage(encodeMessage(tq)));
+  std::vector<uint8_t> twire;
+  assert(tcp->recvDnsMessage(twire));
+  DnsMessage tmsg;
+  assert(decodeMessage(twire, tmsg));
+  assert(tmsg.header.rcode == Rcode::NoError);
+  tcp->close();
+
+  server.stop();
+  shutdownSockets();
+  std::cout << "test_dns_server: ok" << std::endl;
+  return 0;
+}

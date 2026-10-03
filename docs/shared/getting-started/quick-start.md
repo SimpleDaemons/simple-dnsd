@@ -1,12 +1,9 @@
 # Quick start
 
-**0.3.0** encodes DNS messages in process. It does not listen on port 53.
-
 ```bash
 cmake -B build -DENABLE_TESTS=ON
 cmake --build build -j
-ctest --test-dir build --output-on-failure
-./build/simple-dnsd --version
+./build/simple-dnsd --config config/templates/development.conf --foreground
 ```
 
-DNS listen arrives in 0.4.0.
+Zones in the memory backend do not persist. Load records via a later `simple-dnsutil` (0.8.0) or wait for BIND/SQL backends.

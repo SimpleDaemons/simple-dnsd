@@ -1,14 +1,13 @@
 # Simple DNS Daemon - Project Status
 
-**Version:** 0.3.0  
-**Status:** Wire codec. **Does not serve DNS yet.**
+**Version:** 0.4.0  
+**Status:** Authoritative UDP/TCP with memory backend.
 
-## Completed at 0.3.0
+## Completed at 0.4.0
 
-- `DnsName` and `DnsMessage` codec
-- EDNS0 OPT
-- `test_dns_name`, `test_dns_codec`
+- Listen loop, AA answers, memory backend
+- `test_dns_engine`, `test_dns_backend` (memory), `test_dns_server`
 
 ## Next
 
-- 0.4.0 UDP/TCP listen and memory backend
+- 0.5.0 BIND zone files

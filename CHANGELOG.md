@@ -4,24 +4,27 @@ All notable changes to simple-dnsd are documented in this file. Versions follow 
 
 ## [Unreleased]
 
-Work toward 0.4.0 (UDP/TCP engine and memory backend).
+Work toward 0.5.0 (BIND zone files).
 
-## [0.3.0] — 2026-10-03
+## [0.4.0] — 2026-10-03
 
-Milestone 3 — Wire codec.
+Milestone 4 — Authoritative engine.
 
 ### Added
 
-- `DnsName` presentation and wire form with RFC 1035 compression
-- `DnsMessage` / header / question / RR codec
-- A, AAAA, NS, CNAME, SOA, MX, TXT, PTR, SRV, CAA, RFC 3597 unknown types
-- EDNS0 OPT (`edns_bufsize`)
-- Unit tests `test_dns_name` and `test_dns_codec`
+- UDP and TCP listeners on the same port
+- Memory backend and `BackendRouter`
+- AA answers, NXDOMAIN vs NODATA, CNAME, wildcards, RFC 8482-style ANY
+- Live test `test_dns_server` plus `test_dns_engine` / `test_dns_backend`
+
+## [0.3.0] — 2026-10-03
+
+RFC 1035 codec and DnsName.
 
 ## [0.2.0] — 2026-10-03
 
-Config parser, logger, net helpers, `test_dns_config`.
+Config parser, logger, net helpers.
 
 ## [0.1.0] — 2026-10-03
 
-Skeleton: CMake/CPack and `--help` / `--version`.
+Skeleton packaging and CLI stubs.

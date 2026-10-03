@@ -1,7 +1,7 @@
 # simple-dnsd — Roadmap Checklist
 
-**Current version:** 0.3.0  
-**Overall progress:** Milestones 1–3. Later milestones are the plan, not implemented.
+**Current version:** 0.4.0  
+**Overall progress:** Milestones 1–4. Later milestones are the plan, not implemented.
 **Honest assessment:** Prefer [PROGRESS_REPORT.md](PROGRESS_REPORT.md).
 
 **Product line:** Production (Apache 2.0) — single-host authoritative DNS (not a recursor). Docker is out of scope.
@@ -102,30 +102,30 @@ Each version must `cmake` configure, compile, and pass `ctest` (see [VERSIONING.
 
 ## Milestone 4 — Authoritative engine — v0.4.0
 
-**Status:** Planned
+**Status:** Done
 
 ### Engine
-- [ ] AA answers
-- [ ] NXDOMAIN vs NODATA
-- [ ] In-zone CNAME
-- [ ] Wildcards
-- [ ] RFC 8482-style ANY
-- [ ] Truncation (`TC`) with TCP fallback
-- [ ] Delegations with in-zone glue
+- [x] AA answers
+- [x] NXDOMAIN vs NODATA
+- [x] In-zone CNAME
+- [x] Wildcards
+- [x] RFC 8482-style ANY
+- [x] Truncation (`TC`) with TCP fallback
+- [x] Delegations with in-zone glue
 
 ### Network and backend
-- [ ] UDP listener
-- [ ] TCP listener on the same port as UDP
-- [ ] Memory backend (`launch = memory`)
-- [ ] `Backend` / `Transaction` / `BackendRouter` interfaces
+- [x] UDP listener
+- [x] TCP listener on the same port as UDP
+- [x] Memory backend (`launch = memory`)
+- [x] `Backend` / `Transaction` / `BackendRouter` interfaces
 
 ### Tests
-- [ ] `test_dns_engine`
+- [x] `test_dns_engine`
 
 ### Build verification
-- [ ] Version files are `0.4.0`
-- [ ] Configure, compile, `ctest`
-- [ ] `./build/simple-dnsd --version` prints `0.4.0`
+- [x] Version files are `0.4.0`
+- [x] Configure, compile, `ctest`
+- [x] `./build/simple-dnsd --version` prints `0.4.0`
 
 ---
 
