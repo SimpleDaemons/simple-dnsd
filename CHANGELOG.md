@@ -1,7 +1,10 @@
 # Changelog
 
 ## [Unreleased]
-Work toward 0.12.0 (RFC 2136 UPDATE).
+Work toward 0.13.0 (privilege drop, CI, docs).
+
+## [0.12.0] — 2026-10-03
+RFC 2136 UPDATE with allow_update/TSIG, SOA serial bump, cache invalidation, live test.
 
 ## [0.11.0] — 2026-10-03
 Packet cache wired into query path, RRL, TCP/packet limits, worker threads, ServerStats.

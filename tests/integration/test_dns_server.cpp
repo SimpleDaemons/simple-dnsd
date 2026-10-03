@@ -62,6 +62,7 @@ int main() {
   ZoneInfo z;
   z.name = DnsName::parse("example.com");
   z.allow_axfr = {"127.0.0.1"};
+  z.allow_update = {"127.0.0.1"};
   assert(server.router().createZone(
       z, rr("example.com.", RrType::Soa,
             "ns.example.com. hostmaster.example.com. 1 10800 3600 604800 3600")));
@@ -115,6 +116,22 @@ int main() {
   assert(axfr.header.rcode == Rcode::NoError);
   assert(axfr.answers.size() >= 3);
   xfr->close();
+
+  // RFC 2136 UPDATE: add a record, then the new name resolves (cache invalidated).
+  auto before = queryUdp(dns_port, DnsName::parse("new.example.com"), RrType::A);
+  assert(before.header.rcode == Rcode::NxDomain);
+  DnsMessage update = makeQuery(z.name, RrType::Soa, 14);
+  update.header.opcode = Opcode::Update;
+  update.authority.push_back(rr("new.example.com.", RrType::A, "192.0.2.55"));
+  std::vector<uint8_t> ureply;
+  assert(UdpSocket::sendOnce("127.0.0.1", dns_port, encodeMessage(update), ureply, 2000));
+  DnsMessage uresp;
+  assert(decodeMessage(ureply, uresp));
+  assert(uresp.header.rcode == Rcode::NoError);
+  auto added = queryUdp(dns_port, DnsName::parse("new.example.com"), RrType::A);
+  assert(added.header.rcode == Rcode::NoError);
+  assert(!added.answers.empty());
+  assert(server.stats().updates.load() >= 1);
 
   auto http = TcpConnection::connectTo("127.0.0.1", api_port);
   assert(http);

@@ -12,7 +12,7 @@ Git tags and GitHub Releases use the `vMAJOR.MINOR.PATCH` form and point at the 
 
 ## Current version
 
-**0.11.0** — Packet cache wired into query path, RRL, TCP/packet limits, worker threads, ServerStats. See [CHANGELOG.md](CHANGELOG.md) and [project/ROADMAP_CHECKLIST.md](project/ROADMAP_CHECKLIST.md).
+**0.12.0** — RFC 2136 UPDATE with allow_update/TSIG, SOA serial bump, cache invalidation, live test. See [CHANGELOG.md](CHANGELOG.md) and [project/ROADMAP_CHECKLIST.md](project/ROADMAP_CHECKLIST.md).
 
 ## Milestone map
 
@@ -28,8 +28,8 @@ Git tags and GitHub Releases use the `vMAJOR.MINOR.PATCH` form and point at the 
 | **0.8.0** | 8 — CLI | `simple-dnsutil` zone/record/export commands | Done |
 | **0.9.0** | 9 — REST API | `/api/v1/servers/localhost/zones` subset | Done |
 | **0.10.0** | 10 — Zone transfers | AXFR, NOTIFY, secondary, TSIG HMAC-SHA256 | Done |
-| **0.11.0** | 11 — Performance | Workers, packet cache, RRL, limits, stats | Current |
-| **0.12.0** | 12 — Dynamic updates | RFC 2136 UPDATE | Not yet |
+| **0.11.0** | 11 — Performance | Workers, packet cache, RRL, limits, stats | Done |
+| **0.12.0** | 12 — Dynamic updates | RFC 2136 UPDATE | Current |
 | **0.13.0** | 13 — Hardening | Privilege drop, CI, docs | Not yet |
 | **1.0.0** | Contract cut | Hygiene release after 0.13.0 | Not yet |
 

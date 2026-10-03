@@ -1,7 +1,7 @@
 # Progress report
 
-**Version:** 0.11.0
+**Version:** 0.12.0
 
-Packet cache is on the query path (`cache_size`, `cache_ttl`; hits/misses in `ServerStats` and `/statistics`). RRL per client IP (`rrl_rate`). `max_tcp_sessions`, `idle_timeout`, `max_packet_size`, `worker_threads`. `test_dns_server` asserts a cache hit.
+UPDATE opcode adds/deletes/replaces RRsets, gated by per-zone `allow_update` or a TSIG key, bumps the SOA serial, and invalidates the packet cache. `test_dns_server` performs a live UPDATE and re-queries the new name.
 
 **1.0.0 is not the current version.**

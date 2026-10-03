@@ -1,7 +1,7 @@
 # simple-dnsd — Roadmap Checklist
 
-**Current version:** 0.11.0  
-**Overall progress:** Milestones 1–11. Later milestones are the plan, not implemented.
+**Current version:** 0.12.0  
+**Overall progress:** Milestones 1–12. Later milestones are the plan, not implemented.
 **Honest assessment:** Prefer [PROGRESS_REPORT.md](PROGRESS_REPORT.md).
 
 **Product line:** Production (Apache 2.0) — single-host authoritative DNS (not a recursor). Docker is out of scope.
@@ -279,18 +279,18 @@ Each version must `cmake` configure, compile, and pass `ctest` (see [VERSIONING.
 
 ## Milestone 12 — Dynamic updates — v0.12.0
 
-**Status:** Planned
+**Status:** Done
 
 ### RFC 2136
-- [ ] Opcode UPDATE add / delete / replace
-- [ ] TSIG and per-zone `allow_update`
-- [ ] SOA serial bump on success
-- [ ] Packet-cache invalidation after writes
+- [x] Opcode UPDATE add / delete / replace
+- [x] TSIG and per-zone `allow_update`
+- [x] SOA serial bump on success
+- [x] Packet-cache invalidation after writes
 
 ### Build verification
-- [ ] Version files are `0.12.0`
-- [ ] Configure, compile, `ctest`
-- [ ] `./build/simple-dnsd --version` prints `0.12.0`
+- [x] Version files are `0.12.0`
+- [x] Configure, compile, `ctest`
+- [x] `./build/simple-dnsd --version` prints `0.12.0`
 
 ---
 

@@ -1,3 +1,3 @@
 # Overview
 
-**Version:** 0.11.0 — cache, RRL, limits, stats.
+**Version:** 0.12.0 — RFC 2136 dynamic updates.

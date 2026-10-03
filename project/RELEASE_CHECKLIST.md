@@ -1,6 +1,6 @@
 # simple-dnsd Release Checklist
 
-Use this checklist when preparing a release (currently **v0.11.0**).
+Use this checklist when preparing a release (currently **v0.12.0**).
 
 ## Pre-Release
 
@@ -27,5 +27,5 @@ Use this checklist when preparing a release (currently **v0.11.0**).
 
 ---
 
-**Version:** 0.11.0  
+**Version:** 0.12.0  
 **Last Updated:** October 2026
