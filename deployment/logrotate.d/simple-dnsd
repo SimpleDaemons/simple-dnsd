@@ -1,0 +1,11 @@
+/var/log/simple-dnsd/*.log {
+    daily
+    missingok
+    rotate 52
+    compress
+    delaycompress
+    notifempty
+    copytruncate
+    create 640 simple-dnsd simple-dnsd
+    su simple-dnsd simple-dnsd
+}

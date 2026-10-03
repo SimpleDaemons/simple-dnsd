@@ -1,0 +1,38 @@
+#!/bin/bash
+# SSH wrapper for Vagrant VM
+# Usage: ./vm-ssh [vm_name] "command to run"
+
+set -e
+
+# Get VM name from first argument or default to ubuntu_dev
+VM_NAME="${1:-ubuntu_dev}"
+VM_DIR="automation/vagrant/virtuals/$VM_NAME"
+
+# Check if VM directory exists
+if [ ! -d "$VM_DIR" ]; then
+    echo "❌ VM directory $VM_DIR not found"
+    echo "Available VMs: ubuntu_dev, centos_dev"
+    exit 1
+fi
+
+# Change to VM directory
+cd "$VM_DIR"
+
+# Check if Vagrant VM is running
+if ! vagrant status | grep -q "running"; then
+    echo "Starting Vagrant VM..."
+    vagrant up
+fi
+
+# Run command on VM
+if [ $# -eq 1 ]; then
+    # No command provided, just SSH in
+    vagrant ssh
+else
+    # Command provided, run it
+    shift  # Remove VM name from arguments
+    vagrant ssh -c "$@"
+fi
+
+# Return to original directory
+cd - > /dev/null

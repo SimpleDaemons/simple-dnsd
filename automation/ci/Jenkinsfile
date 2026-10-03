@@ -1,0 +1,4 @@
+// Deprecated: Multibranch uses the repository-root Jenkinsfile.
+// See automation/build/jenkins/Jenkinsfile.daemon and automation/build/README.md (Jenkins section).
+error("Use the repository root Jenkinsfile (Multibranch Script Path: Jenkinsfile)")
+

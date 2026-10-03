@@ -1,0 +1,17 @@
+#!/bin/sh
+# Post-removal for simple-dnsd. Purge drops logs; directory data is kept.
+
+set -e
+
+PROJECT_NAME="simple-dnsd"
+LOG_DIR="/var/log/$PROJECT_NAME"
+
+if [ "$1" = "purge" ]; then
+    rm -rf "$LOG_DIR"
+fi
+
+if command -v systemctl >/dev/null 2>&1; then
+    systemctl daemon-reload >/dev/null 2>&1 || true
+fi
+
+exit 0

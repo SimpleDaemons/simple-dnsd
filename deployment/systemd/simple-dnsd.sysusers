@@ -1,0 +1,1 @@
+u simple-dnsd - "simple-dnsd service user" /var/lib/simple-dnsd /usr/sbin/nologin

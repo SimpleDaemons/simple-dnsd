@@ -1,0 +1,41 @@
+[Unit]
+Description=Simple DNS Daemon
+Documentation=https://github.com/SimpleDaemons/simple-dnsd
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=simple-dnsd
+Group=simple-dnsd
+# Port 53 is privileged; ambient cap survives NoNewPrivileges
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+ExecStart=/usr/bin/simple-dnsd --config /etc/simple-dnsd/simple-dnsd.conf --foreground
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=simple-dnsd
+
+# systemd creates these as simple-dnsd:simple-dnsd under /var/lib and /var/log
+StateDirectory=simple-dnsd
+LogsDirectory=simple-dnsd
+ConfigurationDirectory=simple-dnsd
+WorkingDirectory=/var/lib/simple-dnsd
+ReadWritePaths=/var/lib/simple-dnsd /var/log/simple-dnsd
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=multi-user.target

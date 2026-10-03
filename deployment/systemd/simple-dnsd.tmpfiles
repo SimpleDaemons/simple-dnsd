@@ -1,0 +1,4 @@
+d /var/lib/simple-dnsd 0750 simple-dnsd simple-dnsd -
+d /var/log/simple-dnsd 0750 simple-dnsd simple-dnsd -
+d /etc/simple-dnsd 0750 root simple-dnsd -
+d /etc/simple-dnsd/tls 0750 root simple-dnsd -

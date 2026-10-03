@@ -1,0 +1,41 @@
+#!/bin/bash
+# Test script for Vagrant VM
+# Usage: ./vm-test [vm_name] [test-pattern]
+
+set -e
+
+# Get VM name from first argument or default to ubuntu_dev
+VM_NAME="${1:-ubuntu_dev}"
+VM_DIR="automation/vagrant/virtuals/$VM_NAME"
+
+# Check if VM directory exists
+if [ ! -d "$VM_DIR" ]; then
+    echo "❌ VM directory $VM_DIR not found"
+    echo "Available VMs: ubuntu_dev, centos_dev"
+    exit 1
+fi
+
+# Change to VM directory
+cd "$VM_DIR"
+
+# Check if Vagrant VM is running
+if ! vagrant status | grep -q "running"; then
+    echo "Starting Vagrant VM..."
+    vagrant up
+fi
+
+# Sync files to VM
+echo "Syncing files to VM..."
+vagrant rsync
+
+# Run tests on VM
+if [ -n "$2" ]; then
+    echo "Running specific test: $2"
+    vagrant ssh -c "cd /opt/simple-dnsd/build && sudo -u dnsddev ./tests/simple-dnsd-tests --gtest_filter='$2'"
+else
+    echo "Running all tests..."
+    vagrant ssh -c "cd /opt/simple-dnsd/build && sudo -u dnsddev make test"
+fi
+
+# Return to original directory
+cd - > /dev/null
