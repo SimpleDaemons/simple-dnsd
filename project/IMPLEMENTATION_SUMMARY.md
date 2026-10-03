@@ -1,3 +1,3 @@
 # Summary
 
-**0.8.0** adds simple-dnsutil.
+**0.9.0** adds the REST API subset.

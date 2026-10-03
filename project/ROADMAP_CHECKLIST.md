@@ -1,7 +1,7 @@
 # simple-dnsd — Roadmap Checklist
 
-**Current version:** 0.8.0  
-**Overall progress:** Milestones 1–8. Later milestones are the plan, not implemented.
+**Current version:** 0.9.0  
+**Overall progress:** Milestones 1–9. Later milestones are the plan, not implemented.
 **Honest assessment:** Prefer [PROGRESS_REPORT.md](PROGRESS_REPORT.md).
 
 **Product line:** Production (Apache 2.0) — single-host authoritative DNS (not a recursor). Docker is out of scope.
@@ -218,22 +218,22 @@ Each version must `cmake` configure, compile, and pass `ctest` (see [VERSIONING.
 
 ## Milestone 9 — REST API — v0.9.0
 
-**Status:** Planned
+**Status:** Done
 
 ### HTTP API
-- [ ] `enable_api` listener on `api_listen`:`api_port`
-- [ ] `X-API-Key` (`api_key`)
-- [ ] `GET /api/v1/servers` and `/servers/localhost`
-- [ ] `GET /api/v1/servers/localhost/statistics`
-- [ ] `GET|POST /api/v1/servers/localhost/zones`
-- [ ] `GET|PATCH|DELETE /api/v1/servers/localhost/zones/{zone}`
-- [ ] `GET .../zones/{zone}/export`
-- [ ] jsoncpp via `ENABLE_JSON` (501 without JSON)
+- [x] `enable_api` listener on `api_listen`:`api_port`
+- [x] `X-API-Key` (`api_key`)
+- [x] `GET /api/v1/servers` and `/servers/localhost`
+- [x] `GET /api/v1/servers/localhost/statistics`
+- [x] `GET|POST /api/v1/servers/localhost/zones`
+- [x] `GET|PATCH|DELETE /api/v1/servers/localhost/zones/{zone}`
+- [x] `GET .../zones/{zone}/export`
+- [x] jsoncpp via `ENABLE_JSON` (501 without JSON)
 
 ### Build verification
-- [ ] Version files are `0.9.0`
-- [ ] Configure, compile, `ctest`
-- [ ] `./build/simple-dnsd --version` prints `0.9.0`
+- [x] Version files are `0.9.0`
+- [x] Configure, compile, `ctest`
+- [x] `./build/simple-dnsd --version` prints `0.9.0`
 
 ---
 

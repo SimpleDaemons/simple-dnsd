@@ -46,11 +46,17 @@ int main() {
   cfg.idle_timeout = 1;
   cfg.foreground = true;
   cfg.log_level = "error";
+  cfg.enable_api = true;
+  cfg.api_listen = "127.0.0.1";
+  cfg.api_port = 0;
+  cfg.api_key = "testkey";
 
   DnsServer server(cfg);
   assert(server.start());
   const port_t dns_port = server.dnsPort();
+  const port_t api_port = server.apiPort();
   assert(dns_port != 0);
+  assert(api_port != 0);
 
   ZoneInfo z;
   z.name = DnsName::parse("example.com");
@@ -86,6 +92,28 @@ int main() {
   assert(decodeMessage(twire, tmsg));
   assert(tmsg.header.rcode == Rcode::NoError);
   tcp->close();
+
+  auto http = TcpConnection::connectTo("127.0.0.1", api_port);
+  assert(http);
+  std::string req =
+      "GET /api/v1/servers/localhost/zones HTTP/1.1\r\nHost: localhost\r\n"
+      "X-API-Key: testkey\r\nConnection: close\r\n\r\n";
+  assert(http->sendAll(std::vector<uint8_t>(req.begin(), req.end())));
+  std::string body;
+  uint8_t buf[2048];
+  while (http->waitReadable(1000)) {
+#ifdef SIMPLE_DNSD_WINDOWS
+    const int n = ::recv(http->native(), reinterpret_cast<char *>(buf), sizeof(buf), 0);
+#else
+    const ssize_t n = ::recv(http->native(), buf, sizeof(buf), 0);
+#endif
+    if (n <= 0) {
+      break;
+    }
+    body.append(reinterpret_cast<char *>(buf), static_cast<std::size_t>(n));
+  }
+  assert(body.find("example.com") != std::string::npos);
+  http->close();
 
   server.stop();
   shutdownSockets();

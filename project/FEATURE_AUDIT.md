@@ -1,7 +1,7 @@
 # Feature audit
 
-| Area | 0.8.0 |
+| Area | 0.9.0 |
 |------|-------|
-| Backends | memory, BIND, SQLite, Postgres, MySQL |
-| simple-dnsutil | Implemented |
-| REST | Not yet |
+| Backends / CLI | Implemented |
+| REST API | Implemented |
+| AXFR / NOTIFY / TSIG | Not yet |

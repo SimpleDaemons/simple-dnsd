@@ -1,10 +1,13 @@
 # Changelog
 
 ## [Unreleased]
-Work toward 0.9.0 (REST API).
+Work toward 0.10.0 (AXFR, NOTIFY, TSIG).
+
+## [0.9.0] — 2026-10-03
+REST API subset under `/api/v1/servers/localhost` with `X-API-Key`; live API test.
 
 ## [0.8.0] — 2026-10-03
-`simple-dnsutil` zone/record/export/import commands.
+`simple-dnsutil` zone commands.
 
 ## [0.7.0] — 2026-10-03
 PostgreSQL and MySQL gsql.
