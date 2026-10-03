@@ -1,3 +1,3 @@
 # Status
 
-**0.6.0** SQLite gsql. Postgres/MySQL next.
+**0.7.0** Postgres/MySQL gsql. CLI next.

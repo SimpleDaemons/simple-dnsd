@@ -1,7 +1,7 @@
 # simple-dnsd — Roadmap Checklist
 
-**Current version:** 0.6.0  
-**Overall progress:** Milestones 1–6. Later milestones are the plan, not implemented.
+**Current version:** 0.7.0  
+**Overall progress:** Milestones 1–7. Later milestones are the plan, not implemented.
 **Honest assessment:** Prefer [PROGRESS_REPORT.md](PROGRESS_REPORT.md).
 
 **Product line:** Production (Apache 2.0) — single-host authoritative DNS (not a recursor). Docker is out of scope.
@@ -176,22 +176,22 @@ Each version must `cmake` configure, compile, and pass `ctest` (see [VERSIONING.
 
 ## Milestone 7 — PostgreSQL / MySQL — v0.7.0
 
-**Status:** Planned
+**Status:** Done
 
 ### Backends
-- [ ] PostgreSQL via libpq (`postgres_dsn`, `schema/pgsql.sql`)
-- [ ] MySQL/MariaDB via Connector/C (`mysql_dsn`, `schema/mysql.sql`)
-- [ ] Missing client libraries skip the backend at configure time
+- [x] PostgreSQL via libpq (`postgres_dsn`, `schema/pgsql.sql`)
+- [x] MySQL/MariaDB via Connector/C (`mysql_dsn`, `schema/mysql.sql`)
+- [x] Missing client libraries skip the backend at configure time
 
 ### Router
-- [ ] `launch =` comma-separated backends
-- [ ] Longest matching zone wins
-- [ ] `BackendRouter::copyZone`
+- [x] `launch =` comma-separated backends
+- [x] Longest matching zone wins
+- [x] `BackendRouter::copyZone`
 
 ### Build verification
-- [ ] Version files are `0.7.0`
-- [ ] Configure, compile, `ctest`
-- [ ] `./build/simple-dnsd --version` prints `0.7.0`
+- [x] Version files are `0.7.0`
+- [x] Configure, compile, `ctest`
+- [x] `./build/simple-dnsd --version` prints `0.7.0`
 
 ---
 

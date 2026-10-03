@@ -1,3 +1,3 @@
 # Summary
 
-**0.6.0** adds SQLite gsql.
+**0.7.0** adds PostgreSQL and MySQL backends.

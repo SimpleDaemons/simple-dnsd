@@ -1,3 +1,3 @@
 # Simple DNS Daemon
 
-**Current version:** 0.6.0. Authoritative DNS with memory, BIND, and SQLite backends.
+**Current version:** 0.7.0. Memory, BIND, SQLite, PostgreSQL, and MySQL backends via `launch=`.

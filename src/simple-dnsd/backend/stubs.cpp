@@ -16,15 +16,7 @@
 
 namespace simple_dnsd {
 
-std::unique_ptr<Backend> makePostgresBackend(const std::string &) {
-  Logger::instance().error("postgres backend arrives in 0.7.0");
-  return nullptr;
-}
 
-std::unique_ptr<Backend> makeMysqlBackend(const std::string &) {
-  Logger::instance().error("mysql backend arrives in 0.7.0");
-  return nullptr;
-}
 
 bool handleHttpRequest(DnsServer &, TcpConnection &conn) {
   const char *resp =

@@ -1,10 +1,13 @@
 # Changelog
 
 ## [Unreleased]
-Work toward 0.7.0 (PostgreSQL / MySQL).
+Work toward 0.8.0 (`simple-dnsutil` zone commands).
+
+## [0.7.0] — 2026-10-03
+PostgreSQL and MySQL/MariaDB gsql backends; `launch=` router already present.
 
 ## [0.6.0] — 2026-10-03
-gsql schema and SQLite backend (`launch = sqlite`).
+SQLite gsql.
 
 ## [0.5.0] — 2026-10-03
 BIND zone files.

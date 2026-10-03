@@ -1,3 +1,3 @@
 # Overview
 
-**Version:** 0.6.0 — SQLite gsql plus BIND and memory.
+**Version:** 0.7.0 — all gsql backends plus BIND and memory.
