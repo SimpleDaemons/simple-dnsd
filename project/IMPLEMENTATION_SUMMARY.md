@@ -1,5 +1,3 @@
 # Implementation summary
 
-**0.4.0** is the first cut that answers DNS queries (memory backend, UDP/TCP).
-
-See [PROGRESS_REPORT.md](PROGRESS_REPORT.md).
+**0.5.0** adds BIND zone files on top of the 0.4.0 engine.

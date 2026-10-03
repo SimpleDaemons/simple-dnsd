@@ -16,11 +16,6 @@
 
 namespace simple_dnsd {
 
-std::unique_ptr<Backend> makeBindFileBackend(const std::string &) {
-  Logger::instance().error("bind backend arrives in 0.5.0");
-  return nullptr;
-}
-
 std::unique_ptr<Backend> makeSqliteBackend(const std::string &, const std::string &) {
   Logger::instance().error("sqlite backend arrives in 0.6.0");
   return nullptr;
